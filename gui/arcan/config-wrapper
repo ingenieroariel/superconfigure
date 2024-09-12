@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+cmake -S "$BASELOC"/o/gui/arcan/src -B./ -G Ninja  \
+    -DCMAKE_SKIP_RPATH=true\
+    -DCMAKE_BUILD_WITH_INSTALL_RPATH=false\
+    -DCMAKE_STRIP=""\
+    -DCMAKE_INSTALL_DO_STRIP=OFF\
+    -DCMAKE_C_COMPILER="$CC"\
+    -DCMAKE_CXX_COMPILER="$CXX"\
+    -DCMAKE_INSTALL_PREFIX="$COSMOS"\
+    -DCMAKE_INSTALL_OLDINCLUDEDIR="$COSMOS/include"\
+    -DC_INCLUDE_DIRS="$COSMOS/include" \
+    -DCMAKE_BUILD_TYPE=Release\
+    -DBUILD_SHARED_LIBS=OFF\ 

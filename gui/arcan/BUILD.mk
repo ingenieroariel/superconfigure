@@ -1,10 +1,17 @@
 
 ARCAN_SRC := https://github.com/ingenieroariel/arcan/archive/heads/arcanflake.tar.gz 
-ARCAN_CONFIG_ARGS = -DCMAKE_INSTALL_PREFIX=$$(COSMOS)\
-    -DBUILD_SHARED_LIBS=OFF\
-    -DCMAKE_C_FLAGS="-Os"
+ARCAN_DEPS := gui/SDL2 lib/freetype lang/lua  cosmo-repo/base
+ARCAN_BINS := arcan
 
 $(eval $(call DOWNLOAD_SOURCE,gui/arcan,$(ARCAN_SRC)))
-$(eval $(call CMAKE_BUILD,gui/arcan,$(ARCAN_CONFIG_ARGS),$(ARCAN_CONFIG_ARGS)))
+$(eval $(call SPECIFY_DEPS,gui/arcan,$(ARCAN_DEPS)))
 
-o/gui/arcan/built.fat: BINS = arcan
+o/gui/arcan/configured.x86_64: CONFIG_COMMAND = $(BASELOC)/gui/arcan/config-wrapper
+o/gui/arcan/configured.aarch64: CONFIG_COMMAND = $(BASELOC)/gui/arcan/config-wrapper
+o/gui/arcan/built.x86_64: BUILD_COMMAND = ninja -j$(MAXPROC)
+o/gui/arcan/built.aarch64: BUILD_COMMAND = ninja -j$(MAXPROC)
+
+o/gui/arcan/installed.x86_64: INSTALL_COMMAND = ninja install
+o/gui/arcan/installed.aarch64: INSTALL_COMMAND = ninja install
+
+o/gui/arcan/built.fat: BINS = $(ARCAN_BINS)
