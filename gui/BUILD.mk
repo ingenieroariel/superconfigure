@@ -8,6 +8,7 @@ include gui/xorgproto/BUILD.mk
 include gui/xtrans/BUILD.mk
 include gui/util-macros/BUILD.mk
 include gui/SDL2/BUILD.mk
+include gui/arcan/BUILD.mk
 
 gui:\
 	o/gui/libX11/built.fat \
