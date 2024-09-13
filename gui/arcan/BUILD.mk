@@ -1,6 +1,6 @@
 
 ARCAN_SRC := https://github.com/ingenieroariel/arcan/archive/heads/arcanflake.tar.gz 
-ARCAN_DEPS := gui/SDL2 lib/freetype lang/lua  cosmo-repo/base
+ARCAN_DEPS := gui/SDL2 lib/freetype cosmo-repo/base
 ARCAN_BINS := arcan
 
 $(eval $(call DOWNLOAD_SOURCE,gui/arcan,$(ARCAN_SRC)))
