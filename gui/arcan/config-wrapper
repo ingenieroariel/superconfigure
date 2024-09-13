@@ -1,8 +1,13 @@
 #!/bin/sh
 set -e
-cmake -S "$BASELOC"/o/gui/arcan/src -B./ -G Ninja  \
+
+export PKG_CONFIG_ALLOW_SYSTEM_LIBS=0
+export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=
+
+cmake --debug-output --trace-expand --trace  -S "$BASELOC"/o/gui/arcan/arcan-heads-arcanflake/src -B./ -G Ninja  \
     -DCMAKE_SKIP_RPATH=true\
     -DCMAKE_BUILD_WITH_INSTALL_RPATH=false\
+    -DCMAKE_SKIP_RPATH=true\
     -DCMAKE_STRIP=""\
     -DCMAKE_INSTALL_DO_STRIP=OFF\
     -DCMAKE_C_COMPILER="$CC"\
@@ -11,4 +16,28 @@ cmake -S "$BASELOC"/o/gui/arcan/src -B./ -G Ninja  \
     -DCMAKE_INSTALL_OLDINCLUDEDIR="$COSMOS/include"\
     -DC_INCLUDE_DIRS="$COSMOS/include" \
     -DCMAKE_BUILD_TYPE=Release\
-    -DBUILD_SHARED_LIBS=OFF\ 
+    -DCMAKE_BUILD_TYPE=Release\
+    -DBUILD_PRESET=everything\
+    -DBUILTIN_LUA=On\
+    -DDISABLE_JIT=On\
+    -DSTATIC_LIBUVC=On\
+    -DAUDIO_PLATFORM=stub\
+    -DVIDEO_PLATFORM=sdl2\
+    -DENABLE_LWA=Off\
+    -DAGP_PLATFORM=stub\
+    -DDISABLE_FSRV_ENCODE=On\
+    -DDISABLE_FSRV_DECODE=On\
+    -DDISABLE_FSRV_NET=On\
+    -DDISABLE_FSRV_TERMINAL=On\
+    -DDISABLE_FSRV_REMOTING=On\
+    -DDISABLE_FSRV_AVFEED=On\
+    -DDISABLE_FSRV_TUI=On\
+    -DDISABLE_FSRV_GAME=On\
+    -DHYBRID_HEADLESS=Off\
+    -DCMAKE_FIND_LIBRARY_SUFFIXES=".a"\
+    -DCMAKE_MODULE_LINKER_FLAGS_INIT="-static"\
+    -DBUILD_SHARED_LIBS=OFF\
+    -DCMAKE_VERBOSE_MAKEFILE=ON\
+    -DPKG_CONFIG_USE_CMAKE_PREFIX_PATH=ON\
+    -DPKG_CONFIG_ARGN="--static"\
+    -DCMAKE_EXE_LINKER_FLAGS="-static -static-libgcc -static-libstdc++ -Wl,--whole-archive -lpthread -Wl,--no-whole-archive"\
