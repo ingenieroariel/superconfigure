@@ -1,9 +1,6 @@
 #!/bin/sh
 set -e
 
-export PKG_CONFIG_ALLOW_SYSTEM_LIBS=0
-export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=
-
 cmake --debug-output --trace-expand --trace  -S "$BASELOC"/o/gui/arcan/arcan-heads-arcanflake/src -B./ -G Ninja  \
     -DCMAKE_SKIP_RPATH=true\
     -DCMAKE_BUILD_WITH_INSTALL_RPATH=false\
