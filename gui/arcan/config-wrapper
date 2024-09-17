@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/nix/store/8jind2ncd72hlzym9pghjjdj79fvqzv5-bash-5.2p32/bin/sh
 set -e
 
-cmake --debug-output --trace-expand --trace  -S "$BASELOC"/o/gui/arcan/arcan-heads-arcanflake/src -B./ -G Ninja  \
+cmake  -S "$BASELOC"/o/gui/arcan/arcan-heads-arcanflake/src -B./ -G Ninja  \
     -DCMAKE_SKIP_RPATH=true\
     -DCMAKE_BUILD_WITH_INSTALL_RPATH=false\
     -DCMAKE_SKIP_RPATH=true\
