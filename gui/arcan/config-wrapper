@@ -31,6 +31,7 @@ cmake  -S "$BASELOC"/o/gui/arcan/arcan-heads-arcanflake/src -B./ -G Ninja  \
     -DDISABLE_FSRV_TUI=On\
     -DDISABLE_FSRV_GAME=On\
     -DHYBRID_HEADLESS=Off\
+    -DHYBRID_SDL=Off\
     -DCMAKE_FIND_LIBRARY_SUFFIXES=".a"\
     -DCMAKE_MODULE_LINKER_FLAGS_INIT="-static"\
     -DBUILD_SHARED_LIBS=OFF\
