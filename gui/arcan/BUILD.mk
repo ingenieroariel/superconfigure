@@ -1,7 +1,7 @@
 
 ARCAN_SRC := https://github.com/ingenieroariel/arcan/archive/heads/arcanflake.tar.gz 
 ARCAN_DEPS := gui/xorgproto gui/xtrans gui/xcb-proto gui/libXau gui/libxcb gui/libX11 gui/SDL2 lib/freetype cosmo-repo/base
-ARCAN_BINS := arcan
+ARCAN_BINS := arcan arcan_sdl arcan_db arcan_frameserver
 
 $(eval $(call DOWNLOAD_SOURCE,gui/arcan,$(ARCAN_SRC)))
 $(eval $(call SPECIFY_DEPS,gui/arcan,$(ARCAN_DEPS)))
