@@ -19,7 +19,7 @@ cmake  -S "$BASELOC"/o/gui/arcan/arcan-heads-arcanflake/src -B./ -G Ninja  \
     -DDISABLE_JIT=On\
     -DSTATIC_LIBUVC=On\
     -DAUDIO_PLATFORM=stub\
-    -DVIDEO_PLATFORM=sdl2\
+    -DVIDEO_PLATFORM=stub\
     -DENABLE_LWA=Off\
     -DAGP_PLATFORM=gl21\
     -DDISABLE_FSRV_ENCODE=On\
